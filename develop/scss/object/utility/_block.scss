@@ -1,0 +1,25 @@
+.u-pcOnly {
+  @include breakPoint(md) {
+    display: block;
+  }
+  @include breakPoint(sm) {
+    display: none !important;
+  }
+}
+
+.u-spOnly {
+  @include breakPoint(md) {
+    display: none !important;
+  }
+  @include breakPoint(sm) {
+    display: block;
+  }
+}
+
+.u-block {
+  display: block;
+}
+
+.u-none {
+  display: none !important;
+}

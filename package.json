@@ -1,0 +1,62 @@
+{
+  "name": "gamehouse",
+  "private": true,
+  "scripts": {
+    "build:delete": "rimraf public",
+    "build:pug": "pug develop/pug/ -o public/ --hierarchy -P",
+    "css:scss": "node-sass develop/scss/style.scss public/css/style.css --output-style expanded",
+    "css:prefix": "postcss public/css/style.css -o public/css/style.css",
+    "build:scss": "npm-run-all -s css:*",
+    "lint:eslint": "eslint 'develop/ts/**/*.ts' --fix",
+    "lint:prettier": "prettier 'develop/ts/**/*.ts' --write",
+    "linter": "npm-run-all lint:*",
+    "ts:browserify": "browserify develop/ts/script.ts -p [tsify] -o public/js/script.js",
+    "ts:uglify": "uglifyjs public/js/script.js -c -o public/js/script.js",
+    "build:ts": "npm-run-all -s ts:*",
+    "watch:pug": "watch 'npm run build:pug' develop/pug/",
+    "watch:scss": "watch 'npm run build:scss' develop/scss/",
+    "watch:ts": "watch 'npm run lint:eslint && npm run build:ts' develop/ts/",
+    "watch:server": "browser-sync start -s public -f public",
+    "watch": "npm run build:delete && npm-run-all -p watch:*",
+    "start": "npm run watch",
+    "dev": "npm run linter && npm-run-all -p build:*",
+    "server": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.1.3",
+    "socket.io-client": "^4.1.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^14.14.8",
+    "@types/socket.io": "^3.0.2",
+    "@types/socket.io-client": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.25.0",
+    "@typescript-eslint/parser": "^4.25.0",
+    "autoprefixer": "^9.8.6",
+    "browser-sync": "^2.26.13",
+    "browserify": "^17.0.0",
+    "core-js": "^3.14.0",
+    "cssnano": "^4.1.10",
+    "eslint": "^7.27.0",
+    "eslint-config-prettier": "^8.3.0",
+    "node-sass": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.1.7",
+    "postcss-cli": "^8.2.0",
+    "prettier": "^2.3.0",
+    "pug": "^3.0.0",
+    "pug-cli": "github:pugjs/pug-cli#master",
+    "rimraf": "^3.0.2",
+    "tsify": "^5.0.4",
+    "typescript": "^4.0.5",
+    "uglify-js": "^3.13.3",
+    "watch": "^1.0.2"
+  },
+  "browserslist": [
+    ">0.25% in JP",
+    "not ie <= 10",
+    "not op_mini all"
+  ]
+}

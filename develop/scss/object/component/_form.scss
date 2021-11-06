@@ -1,0 +1,43 @@
+.c-form {
+  &__hdg {
+    background: palette('black', '3');
+  }
+  &__detail {
+    .c-input, .c-select {
+      width: 100%;
+    }
+  }
+  @include breakPoint(md) {
+    &__item {
+      display: flex;
+      align-items: center;
+      border-top: 1px solid palette('black', '2');
+      border-bottom: 1px solid palette('black', '2');
+      + .c-form__item {
+        border-top: none;
+      }
+    }
+    &__hdg {
+      width: 200px;
+      padding: 23px;
+    }
+    &__detail {
+      width: calc(100% - 200px);
+      padding: 10px 20px;
+    }
+  }
+
+  @include breakPoint(sm) {
+    &__item {
+      padding-bottom: 20px;
+    }
+    &__hdg {
+      padding: 14px;
+      border-top: 1px solid palette('black', '2');
+      border-bottom: 1px solid palette('black', '2');
+    }
+    &__detail {
+      margin-top: 18px;
+    }
+  }
+}

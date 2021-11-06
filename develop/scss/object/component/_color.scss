@@ -1,0 +1,155 @@
+@mixin userColor($color) {
+  color: getColor($color, 'text');
+  background: getColor($color, 'bg');
+  border: solid 1px getColor($color, 'text');
+}
+
+@function getColor($color, $property) {
+  @return map-get(map-get($userColors, $color), $property);
+}
+
+$userColors: (
+  'red': (
+    'text': #ff0a0a,
+    'bg' : #ffdbdb
+  ),
+  'orange': (
+    'text': #ff840a,
+    'bg' : #ffeddb
+  ),
+  'yellow': (
+    'text': #e6b422,
+    'bg': #fdffd5,
+  ),
+  'yellowgreen': (
+    'text': #89c997,
+    'bg' : #edffdb
+  ),
+  'lightgreen': (
+    'text': #00e673,
+    'bg' : #dbffed
+  ),
+  'green': (
+    'text': #008000,
+    'bg' : #dbffdb
+  ),
+  'darkcyan': (
+    'text': #008b8b,
+    'bg' : #c1e4e9
+  ),
+  'navy': (
+    'text': #001e43,
+    'bg' : #a2c2e6
+  ),
+  'skyblue': (
+    'text': #00a1e9,
+    'bg' : #dbffff
+  ),
+  'lightblue': (
+    'text': #0a84ff,
+    'bg' : #dbedff
+  ),
+  'blue': (
+    'text': #0a0aff,
+    'bg' : #dbdbff
+  ),
+  'purple': (
+    'text': #840aff,
+    'bg' : #eddbff
+  ),
+  'redpurple': (
+    'text': #ff0aff,
+    'bg' : #ffdbff
+  ),
+  'pink': (
+    'text': #ff0a84,
+    'bg' : #ffdbed
+  ),
+  'brown': (
+    'text': #6c3524,
+    'bg' : #e6bfb2
+  ),
+  'white': (
+    'text': #333,
+    'bg': #fff,
+  ),
+  'gray': (
+    'text': #7a7a7a,
+    'bg': #eeeeee,
+  ),
+  'black': (
+    'text': #eeeeee,
+    'bg': #333,
+  )
+);
+
+@each $color, $value in $userColors {
+  .c-colorSelect__selected[color=#{$color}] {
+    background: getColor($color, 'bg');
+    border: solid 1px getColor($color, 'text');
+  }
+  .c-colorSelect__item[color=#{$color}] {
+    background: getColor($color, 'bg');
+    border: solid 1px getColor($color, 'text');
+  }
+
+  .p-ito__member li[color=#{$color}] {
+    @include userColor($color);
+  }
+
+  .p-chat__item[color=#{$color}] {
+    .p-chat__name {
+      color: getColor($color, 'text');
+    }
+    .p-chat__text {
+      @include userColor($color);
+    }
+  }
+
+  .p-user__name[color=#{$color}] {
+    color: getColor($color, 'text');
+    background: getColor($color, 'bg');
+  }
+}
+
+.c-colorSelect {
+  position: relative;
+  height: 50px;
+  padding: 10px;
+  border: solid 1px palette('border');
+  text-align: center;
+  &__selected {
+    height: 100%;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: absolute;
+    top: 30px;
+    left: -1px;
+    z-index: 3;
+    width: 298px;
+    padding: 10px;
+    background: #fff;
+    border: solid 1px palette('border');
+    opacity: 0;
+    pointer-events: none;
+    transition: all .2s;
+    &.is-active {
+      top: 48px;
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+  &__item {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    &:nth-of-type(n+10) {
+      margin-top: 5px;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.u-align {
+  &Left {
+    text-align: left;
+  }
+  &Center {
+    text-align: center;
+  }
+  &Right {
+    text-align: right;
+  }
+}
+
+.u-text {
+  @for $i from 10 to 21 {
+    &#{$i} {
+      font-size: $i +px;
+    }
+  }
+}
+
+.u-red {
+  color: palette('red');
+}
+
+.u-blue {
+  color: palette('blue');
+}
+
+.u-gray {
+  color: #6c6c6c;
+}
+
+.u-bold {
+  font-weight: bold;
+}
+
+.u-normal {
+  font-weight: normal;
+}

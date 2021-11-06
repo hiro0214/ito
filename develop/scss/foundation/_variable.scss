@@ -1,0 +1,36 @@
+$root: '../../';
+$image: 'images/';
+$image_path: $root + $image;
+
+$base-font-size: 16;
+
+@function palette($palette-group, $palette-type: 'default') {
+  @return map-get(map-get($palettes, $palette-group), $palette-type);
+}
+
+$palettes: (
+  'black': (
+    'default': #111111,
+    '1': #898989,
+    '2': #b5b5b5,
+    '3': #f4f4f4
+  ),
+  'red': (
+    'default': #ce0000
+  ),
+  'orange': (
+    'default': #e26900
+  ),
+  'blue': (
+    'default': #1862C4,
+    '1': #2d8fd5,
+    '2': #525edc
+  ),
+  'green': (
+    'default': #38c32c,
+    '1': #007d34
+  ),
+  'border': (
+    'default': #b5b5b5
+  )
+);

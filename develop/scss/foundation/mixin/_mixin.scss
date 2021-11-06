@@ -1,0 +1,21 @@
+@import
+  './_media.scss';
+
+@mixin bgImage($url, $size: 100% auto) {
+  background-image: $url;
+  background-size: $size;
+  background-repeat: no-repeat;
+}
+
+@mixin topCenter {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin blockCenter {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}

@@ -1,0 +1,120 @@
+extends _layout.pug
+
+block append vars
+
+block content
+  .p-login.is-active
+    .p-login__block.is-active
+      p ルームIDを入力してください。
+      p.p-login__error ルームIDが正しくありません。
+      .c-input.u-mt20: input(type="text")
+      .c-btn 送信
+    .p-login__form
+      p ユーザー情報を入力してください。
+      .c-form.u-mt30
+        .c-form__item
+          .c-form__hdg ニックネーム
+          .c-form__detail
+            .c-input: input(type="text")
+        .c-form__item
+          .c-form__hdg 好きなカラー
+          .c-form__detail
+            .c-colorSelect
+              .c-colorSelect__selected(color='red')
+              .c-colorSelect__list
+                .c-colorSelect__item(color='red')
+                .c-colorSelect__item(color='orange')
+                .c-colorSelect__item(color='yellow')
+                .c-colorSelect__item(color='yellowgreen')
+                .c-colorSelect__item(color='lightgreen')
+                .c-colorSelect__item(color='green')
+                .c-colorSelect__item(color='darkcyan')
+                .c-colorSelect__item(color='navy')
+                .c-colorSelect__item(color='skyblue')
+                .c-colorSelect__item(color='lightblue')
+                .c-colorSelect__item(color='blue')
+                .c-colorSelect__item(color='purple')
+                .c-colorSelect__item(color='redpurple')
+                .c-colorSelect__item(color='pink')
+                .c-colorSelect__item(color='brown')
+                .c-colorSelect__item(color='white')
+                .c-colorSelect__item(color='gray')
+                .c-colorSelect__item(color='black')
+
+      .c-btn 入室する
+
+  .p-admin
+    .p-admin__block.is-active
+      p 何をしますか?
+      .p-admin__btn
+        .c-btn#configRoom ルームを作成する
+        .c-btn#deleteRoom ルームを削除する
+    .p-admin__form
+      p ルームの設定をしてください。
+      .c-form.u-mt30
+        .c-form__item
+          .c-form__hdg ルームID
+          .c-form__detail
+            .c-input: input(type="text")
+        .c-form__item
+          .c-form__hdg 遊ぶゲーム
+          .c-form__detail
+            .c-select: select
+              option ito
+      .c-btn#createRoom ルームを作成する
+
+  main.l-main
+    .c-container.p-lobby(size='medium')
+      .p-lobby__content
+
+      .p-userMenu
+        .p-userMenu__icon
+        .p-userMenu__block
+          .p-userMenu__hdg ユーザーメニュー
+          .p-userMenu__btn
+            .c-btn.c-btn--yellow#changeName 名前を変更する
+            .c-btn.c-btn--yellow#changeColor カラーを変更する
+            .c-btn.c-btn--white#logout この部屋から退出する
+          .p-userMenu__modal.p-userMenu__modal--name
+            p 名前を入力してください。
+            .c-input: input(type="text")
+            .c-btn.c-btn--blue 変更
+          .p-userMenu__modal.p-userMenu__modal--color
+            p カラーを選択してください。
+            .c-colorSelect.u-mt10
+              .c-colorSelect__selected(color='red')
+              .c-colorSelect__list
+                .c-colorSelect__item(color='red')
+                .c-colorSelect__item(color='orange')
+                .c-colorSelect__item(color='yellow')
+                .c-colorSelect__item(color='yellowgreen')
+                .c-colorSelect__item(color='lightgreen')
+                .c-colorSelect__item(color='green')
+                .c-colorSelect__item(color='darkcyan')
+                .c-colorSelect__item(color='navy')
+                .c-colorSelect__item(color='skyblue')
+                .c-colorSelect__item(color='lightblue')
+                .c-colorSelect__item(color='blue')
+                .c-colorSelect__item(color='purple')
+                .c-colorSelect__item(color='redpurple')
+                .c-colorSelect__item(color='pink')
+                .c-colorSelect__item(color='brown')
+                .c-colorSelect__item(color='white')
+                .c-colorSelect__item(color='gray')
+                .c-colorSelect__item(color='black')
+            .c-btn.c-btn--blue 変更
+
+      .p-chat(size='medium')
+        .p-chat__menu
+          ul.p-chat__menu--width.u-pcOnly
+            li.small
+            li.medium
+            li.large
+          ul.p-chat__menu--height
+            li.small
+            li.medium
+            li.large
+        .p-chat__block
+        .p-chat__form
+          .c-input: input(type="text")
+          .c-btn.c-btn--blue 送信

@@ -1,0 +1,133 @@
+.u-mt {
+  @for $i from 0 to 21 {
+    &#{$i * 5} {
+      margin-top: $i * 5 +px;
+    }
+  }
+}
+
+.u-mb {
+  @for $i from 0 to 21 {
+    &#{$i * 5} {
+      margin-bottom: $i * 5 +px;
+    }
+  }
+}
+
+.u-pt {
+  @for $i from 0 to 21 {
+    &#{$i * 5} {
+      padding-top: $i * 5 +px;
+    }
+  }
+}
+
+.u-pb {
+  @for $i from 0 to 21 {
+    &#{$i * 5} {
+      padding-bottom: $i * 5 +px;
+    }
+  }
+}
+
+@include breakPoint(md) {
+  .u-mt--pc {
+    @for $i from 0 to 21 {
+      &#{$i * 5} {
+        margin-top: $i * 5 +px;
+      }
+    }
+  }
+  .u-mb--pc {
+    @for $i from 0 to 21 {
+      &#{$i * 5} {
+        margin-bottom: $i * 5 +px;
+      }
+    }
+  }
+  .u-pt--pc {
+    @for $i from 0 to 21 {
+      &#{$i * 5} {
+        padding-top: $i * 5 +px;
+      }
+    }
+  }
+  .u-pb--pc {
+    @for $i from 0 to 21 {
+      &#{$i * 5} {
+        padding-bottom: $i * 5 +px;
+      }
+    }
+  }
+}
+
+@include breakPoint(sm) {
+  .u-mt--sp {
+    @for $i from 0 to 21 {
+      &#{$i * 5} {
+        margin-top: $i * 5 +px;
+      }
+    }
+  }
+  .u-mb--sp {
+    @for $i from 0 to 21 {
+      &#{$i * 5} {
+        margin-bottom: $i * 5 +px;
+      }
+    }
+  }
+  .u-pt--sp {
+    @for $i from 0 to 21 {
+      &#{$i * 5} {
+        padding-top: $i * 5 +px;
+      }
+    }
+  }
+  .u-pb--sp {
+    @for $i from 0 to 21 {
+      &#{$i * 5} {
+        padding-bottom: $i * 5 +px;
+      }
+    }
+  }
+}
+
+.u-ml05em {
+  margin-left: 0.5em;
+}
+
+.u-ml1em {
+  margin-left: 1em;
+}
+
+.u-ml2em {
+  margin-left: 2em;
+}
+
+@include breakPoint(md) {
+  .u-ml {
+    &--pc05em {
+      margin-left: 0.5em;
+    }
+    &--pc1em {
+      margin-left: 1em;
+    }
+    &--pc2em {
+      margin-left: 2em;
+    }
+  }
+}
+
+@include breakPoint(sm) {
+  .u-ml {
+    &--sp05em {
+      margin-left: 0.5em;
+    }
+    &--sp1em {
+      margin-left: 1em;
+    }
+    &--sp2em {
+      margin-left: 2em;
+    }
+  }
+}

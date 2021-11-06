@@ -1,0 +1,225 @@
+.p-ito {
+  &__text {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  &__member {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    padding: 10px;
+    border: 1px solid palette('border');
+    li {
+      display: inline-block;
+      margin-right: 10px;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+  }
+  &__theme {
+    padding: 10px;
+    font-size: 20px;
+    background: #eee;
+    border: 1px solid palette('border');
+    text-align: center;
+  }
+  &__num {
+    margin-top: 20px;
+    text-align: center;
+    > span {
+      margin-left: 10px;
+      margin-right: 10px;
+      font-size: 40px;
+      vertical-align: middle;
+    }
+  }
+  &__answerForm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid palette('border');
+    .c-input {
+      width: calc(100% - 120px) !important;
+    }
+    .c-btn {
+      width: 100px;
+    }
+  }
+  &__answerList {
+    margin-top: 20px;
+    .c-swap {
+      width: 20px;
+      height: 22px;
+      margin: 5px auto;
+      @include bgImage(url('data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2028.19%2029.99%22%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3Anone%3Bstroke%3A%23000%3Bstroke-linecap%3Around%3Bstroke-linejoin%3Abevel%3Bstroke-width%3A3.13px%3B%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22%E3%83%AC%E3%82%A4%E3%83%A4%E3%83%BC_2%22%20data-name%3D%22%E3%83%AC%E3%82%A4%E3%83%A4%E3%83%BC%202%22%3E%3Cg%20id%3D%22%E3%83%AC%E3%82%A4%E3%83%A4%E3%83%BC_1-2%22%20data-name%3D%22%E3%83%AC%E3%82%A4%E3%83%A4%E3%83%BC%201%22%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M24.85%2C1.56l-7.44%2C1%2C1%2C7.43M3.23%2C28.42l7.43-1L9.66%2C20%22%2F%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M16.32%2C27.3a12.5%2C12.5%2C0%2C0%2C0%2C2.2-24m-6.76-.6a12.5%2C12.5%2C0%2C0%2C0-2.08%2C24%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E'));
+      cursor: pointer;
+    }
+  }
+
+  @include breakPoint(md) {
+    width: 500px;
+    margin-left: 100px;
+    &__member {
+      width: 100%;
+    }
+    .c-select, .c-input {
+      width: 400px;
+    }
+    &__answerList {
+      margin-left: -100px;
+      margin-right: -100px;
+    }
+  }
+
+  @include breakPoint(sm) {
+    &__member {
+      width: 100%;
+    }
+    &__form {
+      .c-input input {
+        padding: 6px 10px;
+      }
+      .c-btn {
+        padding: 10px 0;
+      }
+    }
+    > p {
+      font-size: 14px;
+    }
+  }
+}
+
+.p-ito .p-user {
+  position: relative;
+  border: 1px solid palette('border');
+  &__name, &__answer {
+    word-break: break-all;
+  }
+  &__num {
+    display: block;
+    padding: 10px 0px;
+    font-weight: bold;
+    line-height: 1;
+    color: #333;
+    background: #fff;
+    text-align: center;
+    &--close {
+      color: #fff;
+      background: #333;
+    }
+  }
+  &__check {
+    display: block;
+    position: absolute;
+    &--right {
+      background: #99ff99;
+      border: solid 1px #12d300;
+      &::after {
+        content: '';
+        position: absolute;
+        @include topCenter;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        border: solid 3px #12d300;
+        border-radius: 50%;
+      }
+    }
+    &--wrong {
+      background: #ffb7b7;
+      border: solid 1px #ff3333;
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 30px;
+        height: 3px;
+        margin: auto;
+        background: #ff3333;
+      }
+      &::before {
+        transform: rotate(45deg);
+      }
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  @include breakPoint(md) {
+    display: flex;
+    align-items: center;
+    &__name {
+      width: 140px;
+      padding: 11.5px 10px;
+      font-size: 14px;
+    }
+    &__answer {
+      width: calc(100% - 210px);
+      min-height: 44px;
+      padding: 10px 16px;
+      border-left: 1px solid palette('border');
+      border-right: 1px solid palette('border');
+    }
+    &__num {
+      width: 70px;
+      font-size: 24px;
+    }
+    &__check {
+      right: -50px;
+      width: 50px;
+      height: 46px;
+      &--right {
+        &::after {
+          width: 25px;
+          height: 25px;
+        }
+      }
+    }
+  }
+
+  @include breakPoint(sm) {
+    &__name {
+      display: inline-block;
+      width: calc(100% - 50px);
+      padding: 8px 10px;
+      border-bottom: 1px solid palette('border');
+      vertical-align: middle;
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+    &__answer {
+      display: block;
+      width: calc(100% - 50px);
+      min-height: 40px;
+      padding: 8px 10px;
+    }
+    &__num {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50px;
+      font-size: 20px;
+      border-left: 1px solid palette('border');
+      border-bottom: 1px solid palette('border');
+    }
+    &__check {
+      top: 41px;
+      right: 0;
+      width: 50px;
+      height: 40px;
+      &--right {
+        &::after {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+}

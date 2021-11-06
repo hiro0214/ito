@@ -1,0 +1,49 @@
+.c-btn {
+  display: inline-block;
+  position: relative;
+  padding: 14px 0;
+  color: #fff;
+  background: #333;
+  font-weight: bold;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  transition: all .2s;
+  &:hover {
+    opacity: 0.8;
+  }
+
+  @include breakPoint(md) {
+    width: 250px;
+    font-size: 16px;
+    &--large {
+      // width: 250px;
+    }
+  }
+
+  @include breakPoint(sm) {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  &--white {
+    color: #333;
+    background: #fff;
+    border: solid 1px #333;
+  }
+  &--red {
+    background: palette('red');
+  }
+  &--blue {
+    background: palette('blue');
+  }
+  &--yellow {
+    background: #fdd35c;
+  }
+  &--green {
+    background: palette('green');
+  }
+  &--orange {
+    background: palette('orange');
+  }
+}

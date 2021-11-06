@@ -1,0 +1,29 @@
+.l-root {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #eee;
+  @include breakPoint(md) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    overflow: hidden;
+  }
+}
+
+.l-main {
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fff;
+  &.is-active {
+    display: block;
+  }
+  @include breakPoint(md) {
+    max-width: 1000px;
+    min-height: calc(100vh - 40px);
+  }
+
+  @include breakPoint(sm) {
+    min-height: inherit;
+  }
+}

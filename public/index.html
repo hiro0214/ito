@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHouse</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/script.js"></script>
+  </head>
+  <body>
+    <div class="l-root">
+      <div class="p-login is-active">
+        <div class="p-login__block is-active">
+          <p>ルームIDを入力してください。</p>
+          <p class="p-login__error">ルームIDが正しくありません。</p>
+          <div class="c-input u-mt20">
+            <input type="text">
+          </div>
+          <div class="c-btn">送信</div>
+        </div>
+        <div class="p-login__form">
+          <p>ユーザー情報を入力してください。</p>
+          <div class="c-form u-mt30">
+            <div class="c-form__item">
+              <div class="c-form__hdg">ニックネーム</div>
+              <div class="c-form__detail">
+                <div class="c-input">
+                  <input type="text">
+                </div>
+              </div>
+            </div>
+            <div class="c-form__item">
+              <div class="c-form__hdg">好きなカラー</div>
+              <div class="c-form__detail">
+                <div class="c-colorSelect">
+                  <div class="c-colorSelect__selected" color="red"></div>
+                  <div class="c-colorSelect__list">
+                    <div class="c-colorSelect__item" color="red"></div>
+                    <div class="c-colorSelect__item" color="orange"></div>
+                    <div class="c-colorSelect__item" color="yellow"></div>
+                    <div class="c-colorSelect__item" color="yellowgreen"></div>
+                    <div class="c-colorSelect__item" color="lightgreen"></div>
+                    <div class="c-colorSelect__item" color="green"></div>
+                    <div class="c-colorSelect__item" color="darkcyan"></div>
+                    <div class="c-colorSelect__item" color="navy"></div>
+                    <div class="c-colorSelect__item" color="skyblue"></div>
+                    <div class="c-colorSelect__item" color="lightblue"></div>
+                    <div class="c-colorSelect__item" color="blue"></div>
+                    <div class="c-colorSelect__item" color="purple"></div>
+                    <div class="c-colorSelect__item" color="redpurple"></div>
+                    <div class="c-colorSelect__item" color="pink"></div>
+                    <div class="c-colorSelect__item" color="brown"></div>
+                    <div class="c-colorSelect__item" color="white"></div>
+                    <div class="c-colorSelect__item" color="gray"></div>
+                    <div class="c-colorSelect__item" color="black"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="c-btn">入室する</div>
+        </div>
+      </div>
+      <div class="p-admin">
+        <div class="p-admin__block is-active">
+          <p>何をしますか?</p>
+          <div class="p-admin__btn">
+            <div class="c-btn" id="configRoom">ルームを作成する</div>
+            <div class="c-btn" id="deleteRoom">ルームを削除する</div>
+          </div>
+        </div>
+        <div class="p-admin__form">
+          <p>ルームの設定をしてください。</p>
+          <div class="c-form u-mt30">
+            <div class="c-form__item">
+              <div class="c-form__hdg">ルームID</div>
+              <div class="c-form__detail">
+                <div class="c-input">
+                  <input type="text">
+                </div>
+              </div>
+            </div>
+            <div class="c-form__item">
+              <div class="c-form__hdg">遊ぶゲーム</div>
+              <div class="c-form__detail">
+                <div class="c-select">
+                  <select>
+                    <option>ito</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="c-btn" id="createRoom">ルームを作成する</div>
+        </div>
+      </div>
+      <main class="l-main">
+        <div class="c-container p-lobby" size="medium">
+          <div class="p-lobby__content"></div>
+          <div class="p-userMenu">
+            <div class="p-userMenu__icon"></div>
+            <div class="p-userMenu__block">
+              <div class="p-userMenu__hdg">ユーザーメニュー</div>
+              <div class="p-userMenu__btn">
+                <div class="c-btn c-btn--yellow" id="changeName">名前を変更する</div>
+                <div class="c-btn c-btn--yellow" id="changeColor">カラーを変更する</div>
+                <div class="c-btn c-btn--white" id="logout">この部屋から退出する</div>
+              </div>
+              <div class="p-userMenu__modal p-userMenu__modal--name">
+                <p>名前を入力してください。</p>
+                <div class="c-input">
+                  <input type="text">
+                </div>
+                <div class="c-btn c-btn--blue">変更</div>
+              </div>
+              <div class="p-userMenu__modal p-userMenu__modal--color">
+                <p>カラーを選択してください。</p>
+                <div class="c-colorSelect u-mt10">
+                  <div class="c-colorSelect__selected" color="red"></div>
+                  <div class="c-colorSelect__list">
+                    <div class="c-colorSelect__item" color="red"></div>
+                    <div class="c-colorSelect__item" color="orange"></div>
+                    <div class="c-colorSelect__item" color="yellow"></div>
+                    <div class="c-colorSelect__item" color="yellowgreen"></div>
+                    <div class="c-colorSelect__item" color="lightgreen"></div>
+                    <div class="c-colorSelect__item" color="green"></div>
+                    <div class="c-colorSelect__item" color="darkcyan"></div>
+                    <div class="c-colorSelect__item" color="navy"></div>
+                    <div class="c-colorSelect__item" color="skyblue"></div>
+                    <div class="c-colorSelect__item" color="lightblue"></div>
+                    <div class="c-colorSelect__item" color="blue"></div>
+                    <div class="c-colorSelect__item" color="purple"></div>
+                    <div class="c-colorSelect__item" color="redpurple"></div>
+                    <div class="c-colorSelect__item" color="pink"></div>
+                    <div class="c-colorSelect__item" color="brown"></div>
+                    <div class="c-colorSelect__item" color="white"></div>
+                    <div class="c-colorSelect__item" color="gray"></div>
+                    <div class="c-colorSelect__item" color="black"></div>
+                  </div>
+                </div>
+                <div class="c-btn c-btn--blue">変更</div>
+              </div>
+            </div>
+          </div>
+          <div class="p-chat" size="medium">
+            <div class="p-chat__menu">
+              <ul class="p-chat__menu--width u-pcOnly">
+                <li class="small"></li>
+                <li class="medium"></li>
+                <li class="large"></li>
+              </ul>
+              <ul class="p-chat__menu--height">
+                <li class="small"></li>
+                <li class="medium"></li>
+                <li class="large"></li>
+              </ul>
+            </div>
+            <div class="p-chat__block"></div>
+            <div class="p-chat__form">
+              <div class="c-input">
+                <input type="text">
+              </div>
+              <div class="c-btn c-btn--blue">送信</div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

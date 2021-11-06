@@ -1,0 +1,29 @@
+html {
+}
+
+body {
+  color: palette('black');
+  font-size: $base-font-size +px;
+  font-family: "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic Pro";
+}
+
+a {
+  color: palette('black');
+}
+
+button {
+  cursor: pointer;
+}
+
+input {
+  line-height: 1.5;
+  vertical-align: top;
+  &::placeholder {
+    color: #a9adb1;
+  }
+}
+
+img {
+  width: 100%;
+  vertical-align: middle;
+}

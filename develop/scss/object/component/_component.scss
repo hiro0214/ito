@@ -1,0 +1,15 @@
+@import
+  './_btn',
+  './_color',
+  './_form',
+  './_input';
+
+.c-container {
+  @include breakPoint(md) {
+    padding: 20px 40px 30px;
+  }
+
+  @include breakPoint(sm) {
+    padding: 0 15px;
+  }
+}
